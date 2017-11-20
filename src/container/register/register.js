@@ -1,17 +1,28 @@
 import React from 'react'
 import Logo from '../../component/logo/logo'
-import {List, InputItem, WingBlank, WhiteSpace, Button} from 'antd-mobile'
+import {List, InputItem, WingBlank, WhiteSpace, Button, Radio} from 'antd-mobile'
 
 class Login extends React.Component{
+	constructor(props) {
+		super(props)
+		this.state = {
+			type: 'genuis'
+		}
+	}
 	render(){
+		const RadioItem = Radio.RadioItem
 		return (
 			<div>
 				<Logo></Logo>
-				<h2>我是注册页</h2>
-				<WingBlank>
-					<Button type='primary'>登录</Button>
-					<Button type='primary'>注册</Button>
-				</WingBlank>
+				<List>
+					<InputItem>用户名</InputItem>
+					<InputItem>密码</InputItem>
+					<InputItem>确认密码</InputItem>
+					<RadioItem checked={this.state.type=='genuis'}>牛人</RadioItem>
+					<RadioItem checked={this.state.type=='boss'}>BOSS</RadioItem>
+					<WhiteSpace/>
+					<Button type="primary">注册</Button>
+				</List>
 			</div>
 		)
 	}
