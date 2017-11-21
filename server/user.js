@@ -40,6 +40,7 @@ Router.post('/register', function(req, res) {
 		})
 	})
 })
+
 Router.get('/info', function(req, res){
 	const {userid} = req.cookies
 	if (!userid) {
