@@ -1,10 +1,10 @@
 import axios from 'axios'
 import {getRedireactPath} from '../util'
 
-const REGISTER_SUCCESS = 'REGISTER_SUCCESS'
-const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
-const ERROR_MSG = 'ERROR_MSG'
-
+const REGISTER_SUCCESS = 'REGISTER_SUCCESS'  //注册
+const LOGIN_SUCCESS = 'LOGIN_SUCCESS'   //登录
+const ERROR_MSG = 'ERROR_MSG'        // 发生错误 
+const LOAD_DATA = 'LOAD_DATA'  //加载用户信息
 
 const initState = {
 	redireactTo: '',
@@ -24,6 +24,9 @@ export function user(state=initState, action) {
 		case LOGIN_SUCCESS:
 			return {...state, msg: '',redireactTo: getRedireactPath(action.payload), isAuth: true, ...action.payload}
 			break
+		case LOAD_DATA:
+			return {...state, ...action.payload}
+			break
 		case ERROR_MSG:
 			return {...state, isAuth: false, msg: action.msg}
 			break
@@ -36,6 +39,10 @@ function loginSuccess(data) {
 }
 function registerSuccess(data) {
 	return { type: REGISTER_SUCCESS, payload: data }
+}
+export function loadData(data) {
+	console.log(data)
+	return { type: LOAD_DATA, payload: data}
 }
 
 function errorMsg(msg) {
@@ -56,6 +63,22 @@ export function login({user, pwd}){
 		})
 	}
 }
+
+// export function loadData() {
+// 	return dispatch => {
+// 		// 获取用户信息
+// 		axios.get('/user/info')
+// 		.then( res => {
+// 			if (res.status===200&&res.data.code === 0) {
+// 				console.log(res.data)
+// 				dispatch(loadData(res.data.data))
+// 			}else {
+// 				dispatch(errorMsg(res.data.msg))
+// 			}
+// 		})
+// 	}
+	
+// }
 
 export function register({user, pwd, repeatpwd, type}) {
 	if (!user||!pwd) {
