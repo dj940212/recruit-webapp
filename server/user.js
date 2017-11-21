@@ -8,6 +8,13 @@ Router.get('/list', function(req, res){
 		return res.json(doc)
 	})
 })
+Router.post('/register', function(req, res) {
+	console.log(req.body)
+	const {user, pwd, type} = req.body.data
+	User,findOne({user}, function(err, dec) {
+
+	})
+})
 Router.get('/info', function(req, res){
 	return res.json({code: 1})
 })
