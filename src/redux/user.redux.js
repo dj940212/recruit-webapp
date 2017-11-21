@@ -1,10 +1,12 @@
 import axios from 'axios'
+import {getRedireactPath} from '../util'
 
 const REGISTER_SUCCESS = 'REGISTER_SUCCESS'
 const ERROR_MSG = 'ERROR_MSG'
 
 
 const initState = {
+	redireactTo: '',
 	isAuth: false,
 	msg: '',
 	user: '',
@@ -16,7 +18,7 @@ const initState = {
 export function user(state=initState, action) {
 	switch(action.type) {
 		case REGISTER_SUCCESS:
-			return {...state, msg: '', isAuth: true, ...action.payload}
+			return {...state, msg: '',redireactTo: getRedireactPath(action.payload), isAuth: true, ...action.payload}
 			break
 		case ERROR_MSG:
 			return {...state, isAuth: false, msg: action.msg}
