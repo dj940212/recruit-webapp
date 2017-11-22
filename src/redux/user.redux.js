@@ -1,12 +1,12 @@
 import axios from 'axios'
-import {getRedireactPath} from '../util'
+import {getRedirectPath} from '../util'
 
 const AUTH_SUCCESS = 'AUTH_SUCCESS'
 const ERROR_MSG = 'ERROR_MSG'        // 发生错误 
 const LOAD_DATA = 'LOAD_DATA'  //加载用户信息
 
 const initState = {
-	redireactTo: '',
+	redirectTo: '',
 	msg: '',
 	user: '',
 	pwd: '',
@@ -17,7 +17,8 @@ const initState = {
 export function user(state=initState, action) {
 	switch(action.type) {
 		case AUTH_SUCCESS:
-			return {...state, msg: '',redireactTo: getRedireactPath(action.payload), ...action.payload}
+			console.log({...state, msg: '',redirectTo: getRedirectPath(action.payload), ...action.payload})
+			return {...state, msg: '',redirectTo: getRedirectPath(action.payload), ...action.payload}
 			break
 		case LOAD_DATA:
 			return {...state, ...action.payload}
@@ -55,7 +56,6 @@ export function login({user, pwd}){
 }
 
 export function loadData(data) {
-	console.log(data)
 	return { type: LOAD_DATA, payload: data}
 }
 

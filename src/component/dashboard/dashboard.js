@@ -11,14 +11,6 @@ function Msg(){
 	return <h2>消息列表页面</h2>
 }
 
-// function Boss() {
-// 	return <p>Boss页面</p>
-// }
-
-// function Genius() {
-// 	return <p>Genius页面</p>
-// }
-
 function User() {
 	return <p>User页面</p>
 }
@@ -28,7 +20,6 @@ class Dashboard extends React.Component{
 
 	render(){
 		const {pathname} = this.props.location
-		console.log(this.props.user)
 		const user = this.props.user
 		const navList = [
 			{
