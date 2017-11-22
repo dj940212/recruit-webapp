@@ -3,21 +3,21 @@ import {connect} from 'react-redux'
 import {NavBar} from 'antd-mobile'
 import {Switch, Route} from 'react-router-dom'
 import NavLinkBar from '../navlink/navlink'
-// import Boss from '../../component/boss/boss'
-// import Genius from '../../component/genius/genius'
+import Boss from '../../component/boss/boss'
+import Genius from '../../component/genius/genius'
 // import User from '../../component/user/user'
 
 function Msg(){
 	return <h2>消息列表页面</h2>
 }
 
-function Boss() {
-	return <p>Boss页面</p>
-}
+// function Boss() {
+// 	return <p>Boss页面</p>
+// }
 
-function Genius() {
-	return <p>Genius页面</p>
-}
+// function Genius() {
+// 	return <p>Genius页面</p>
+// }
 
 function User() {
 	return <p>User页面</p>
@@ -28,7 +28,7 @@ class Dashboard extends React.Component{
 
 	render(){
 		const {pathname} = this.props.location
-		console.log(pathname)
+		console.log(this.props.user)
 		const user = this.props.user
 		const navList = [
 			{

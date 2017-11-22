@@ -13,7 +13,7 @@ class Register extends React.Component{
 			user: '',
 			pwd: '',
 			repeatpwd: '',
-			type: 'genuis'
+			type: 'genius'
 		}
 	}
 	handleChange(key, val) {
@@ -37,8 +37,8 @@ class Register extends React.Component{
 					<InputItem type="password" onChange={v=>this.handleChange('pwd', v)}>密码</InputItem>
 					<InputItem type="password" onChange={v=>this.handleChange('repeatpwd', v)}>确认密码</InputItem>
 					<RadioItem 
-						checked={this.state.type==='genuis'}
-						onChange={v=>this.handleChange('type', 'genuis')}
+						checked={this.state.type==='genius'}
+						onChange={v=>this.handleChange('type', 'genius')}
 					>牛人</RadioItem>
 					<RadioItem 
 						checked={this.state.type==='boss'}
