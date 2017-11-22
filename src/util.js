@@ -1,5 +1,5 @@
 export function getRedireactPath({type, avatar}) {
-	let url = (type === 'boss') ? '/boss': '/genuis'
+	let url = (type === 'boss') ? '/boss': '/genius'
 	if (!avatar) {
 		url += '/info'
 	}
