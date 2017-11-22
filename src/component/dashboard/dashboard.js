@@ -5,21 +5,22 @@ import {Switch, Route} from 'react-router-dom'
 import NavLinkBar from '../navlink/navlink'
 import Boss from '../../component/boss/boss'
 import Genius from '../../component/genius/genius'
-// import User from '../../component/user/user'
+import User from '../../component/user/user'
 
 function Msg(){
 	return <h2>消息列表页面</h2>
 }
 
-function User() {
-	return <p>User页面</p>
-}
+// function User() {
+// 	return <p>User页面</p>
+// }
 
 @connect(state => state)
 class Dashboard extends React.Component{
 
 	render(){
 		const {pathname} = this.props.location
+		console.log(pathname)
 		const user = this.props.user
 		const navList = [
 			{

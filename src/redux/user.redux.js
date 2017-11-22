@@ -4,7 +4,7 @@ import {getRedirectPath} from '../util'
 const AUTH_SUCCESS = 'AUTH_SUCCESS'
 const ERROR_MSG = 'ERROR_MSG'        // 发生错误 
 const LOAD_DATA = 'LOAD_DATA'  //加载用户信息
-
+const LOGOUT = 'LOGOUT'
 const initState = {
 	redirectTo: '',
 	msg: '',
@@ -25,6 +25,9 @@ export function user(state=initState, action) {
 			break
 		case ERROR_MSG:
 			return {...state, isAuth: false, msg: action.msg}
+			break
+		case LOGOUT:
+			return {...initState,redirectTo:'/login'}
 			break
 		default:
 			return state
@@ -57,6 +60,10 @@ export function login({user, pwd}){
 
 export function loadData(data) {
 	return { type: LOAD_DATA, payload: data}
+}
+
+export function logoutSubmit(){
+	return { type:LOGOUT }
 }
 
 export function update(data){
