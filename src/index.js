@@ -10,7 +10,7 @@ import Router from './router'
 
 const store = createStore(reducers, compose(
 	applyMiddleware(thunk),
-	window.devToolsExtends?window.devToolsExtendsion():f=>f
+	window.devToolsExtendsion?window.devToolsExtendsion():f=>f
 ))
 
 ReactDOM.render(
