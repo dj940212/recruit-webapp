@@ -6,6 +6,7 @@ import GeniusInfo from '../container/geniusinfo/geniusinfo'
 import Login from '../container/login/login'
 import Register from '../container/register/register'
 import Dashboard from '../component/dashboard/dashboard'
+import Chat from '../component/chat/chat'
 
 class Router extends React.Component{
 	
@@ -22,6 +23,7 @@ class Router extends React.Component{
 						<Route path="/genius/info" component={GeniusInfo}></Route>
 						<Route path="/login" component={Login}></Route>
 						<Route path="/register" component={Register}></Route>
+						<Route path="/chat" component={Chat}></Route>
 						<Route component={Dashboard}></Route>
 					</Switch>
 				</div>
