@@ -4,8 +4,10 @@ import {List, InputItem, WingBlank, WhiteSpace, Button} from 'antd-mobile'
 import { Redirect } from 'react-router-dom'
 import {connect} from 'react-redux'
 import {login} from '../../redux/user.redux'
+import formCom from '../../component/formCom/formCom'
 
 @connect(state => state.user, {login})
+@formCom
 class Login extends React.Component{
 	constructor(props) {
 		super(props)
@@ -19,12 +21,7 @@ class Login extends React.Component{
 		this.props.history.push('/register')
 	}
 	handleLogin() {
-		this.props.login(this.state)
-	}
-	handleChange(key, val) {
-		this.setState({
-			[key]: val
-		})
+		this.props.login(this.props.state)
 	}
 	render(){
 		return(
@@ -34,8 +31,8 @@ class Login extends React.Component{
 				<WingBlank>
 					<List>
 						{this.props.msg ? <p className="error-msg">{this.props.msg}</p> : null}
-						<InputItem onChange={v => this.handleChange('user', v)}>用户</InputItem>
-						<InputItem onChange={v => this.handleChange('pwd', v)}>密码</InputItem>
+						<InputItem onChange={v => this.props.handleChange('user', v)}>用户</InputItem>
+						<InputItem onChange={v => this.props.handleChange('pwd', v)}>密码</InputItem>
 					</List>
 					<WhiteSpace></WhiteSpace>
 					<Button type='primary' onClick={this.handleLogin.bind(this)}>登录</Button>
